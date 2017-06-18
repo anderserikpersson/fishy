@@ -3,12 +3,29 @@
     <ion-title>
       Ionic Blank
     </ion-title>
+
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addSong()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding class="background-template">
+  <div class="template-center">
+    <h4 class="center">Welcome to Ionic 2/3 and Firebase starter kit</h4>
+    <p class="center">In this starter-kit we are using as frontend framework, the ionic 2/3 with angularJs 4. As a database we use the famous
+      firebase of Google. We are trying to demonstrate the usefulness of this platform.</p>
+
+    <ion-list>
+      <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.$key, song.title)">
+        {{song.title}}
+      </ion-item>
+    </ion-list>
+    <p class="center" style="color: blue;">You can add songs from the add button on the top right corner. The list of the songs is saved at firebase. Even in development
+      mode, the list will load and refresh automatically the songs after getting them from firebase. You can edit a song
+      by clicking on it.</p>
+  </div>
 </ion-content>
