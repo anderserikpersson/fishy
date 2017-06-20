@@ -10,24 +10,29 @@ export class HomePage {
 
   username: String;
 
-  songs: FirebaseListObservable<any>;
+  catches: FirebaseListObservable<any>;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, db: AngularFireDatabase, public actionSheetCtrl: ActionSheetController) {
     this.username = 'Anders';
-    this.songs = db.list(this.username+'/songs');
+    this.catches = db.list(this.username + '/catches');
   }
-  addSong() {
+  addCatch() {
     let prompt = this.alertCtrl.create({
-      title: 'Song Name',
-      message: "Enter a name for this new song you're so keen on adding",
+      title: 'Registrera fångst',
+      message: "Mata in uppgifter om din fångst",
       inputs: [
         {
-          name: 'title',
-          placeholder: 'Title'
+          name: 'fish',
+          placeholder: 'Fisktyp'
         },
         {
-          name: 'release',
-          placeholder: 'Release'
+          name: 'date',
+          placeholder: 'Fångstdatum'
+        }
+        ,
+        {
+          name: 'comments',
+          placeholder: 'Kommentarer'
         }
       ],
       buttons: [
@@ -40,9 +45,10 @@ export class HomePage {
         {
           text: 'Save',
           handler: data => {
-            this.songs.push({
-              title: data.title,
-              release: data.release
+            this.catches.push({
+              fish: data.fish,
+              date: data.date,
+              comments: data.comments
             });
           }
         }
@@ -51,20 +57,20 @@ export class HomePage {
     prompt.present();
   }
 
-  showOptions(songId, songTitle,songRelease) {
+  showOptions(catchId, fish, date, comments) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'What do you want to do?',
+      title: 'Vad vill du göra?',
       buttons: [
         {
-          text: 'Delete Song',
+          text: 'Ta bort en registerad fångst',
           role: 'destructive',
           handler: () => {
-            this.removeSong(songId);
+            this.removeCatch(catchId);
           }
         }, {
-          text: 'Update',
+          text: 'Uppdatera en registrerad fångst',
           handler: () => {
-            this.updateSong(songId, songTitle,songRelease);
+            this.updateCatch(catchId, fish, date, comments);
           }
         }, {
           text: 'Cancel',
@@ -78,23 +84,28 @@ export class HomePage {
     actionSheet.present();
   }
 
-  removeSong(songId: string) {
-    this.songs.remove(songId);
+  removeCatch(catchId: string) {
+    this.catches.remove(catchId);
   }
-  updateSong(songId, songTitle,songRelease) {
+  updateCatch(catchId, fish, date, comments) {
     let prompt = this.alertCtrl.create({
-      title: 'Song Name',
-      message: "Update the name for this song",
+      title: 'Registrerad fångst',
+      message: "Uppdatera informationen om fångsten",
       inputs: [
         {
-          name: 'title',
-          placeholder: 'Title',
-          value: songTitle
+          name: 'fish',
+          placeholder: 'Fisktyp',
+          value: fish
         },
         {
-          name: 'release',
-          placeholder: 'Release',
-          value: songRelease
+          name: 'date',
+          placeholder: 'Fångstdatum',
+          value: date
+        },
+        {
+          name: 'comments',
+          placeholder: 'Kommentarer',
+          value: comments
         },
       ],
       buttons: [
@@ -107,9 +118,10 @@ export class HomePage {
         {
           text: 'Save',
           handler: data => {
-            this.songs.update(songId, {
-              title: data.title,
-              release: data.release
+            this.catches.update(catchId, {
+              fish: data.fish,
+              date: data.date,
+              comments: data.comments
             });
           }
         }

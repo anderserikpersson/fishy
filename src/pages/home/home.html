@@ -1,12 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank - {{username}}
+      Fishy - Inloggad som: {{username}}
     </ion-title>
 
-
     <ion-buttons end>
-      <button ion-button icon-only (click)="addSong()">
+      <button ion-button icon-only (click)="addCatch()">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
@@ -15,17 +14,20 @@
 
 <ion-content padding class="background-template">
   <div class="template-center">
-    <h4 class="center">Welcome to Ionic 2/3 and Firebase starter kit</h4>
-    <p class="center">In this starter-kit we are using as frontend framework, the ionic 2/3 with angularJs 4. As a database we use the famous
-      firebase of Google. We are trying to demonstrate the usefulness of this platform.</p>
+    <h4 class="center">Fångade fiskar</h4>
 
     <ion-list>
-      <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.$key, song.title,song.release)">
-        {{song.title}} - {{song.release}}
+      <ion-item *ngFor="let catch of catches | async" (click)="showOptions(catch.$key, catch.fish,catch.date,catch.comments)">
+        <ion-avatar item-start>
+          <img src="assets/img/annan.jpg">
+        </ion-avatar>
+        <h2>{{catch.fish}}</h2>
+        <h2>{{catch.date}}</h2>
+        <p>{{catch.comments}}</p>
       </ion-item>
     </ion-list>
-    <p class="center" style="color: blue;">You can add songs from the add button on the top right corner. The list of the songs is saved at firebase. Even in development
-      mode, the list will load and refresh automatically the songs after getting them from firebase. You can edit a song
-      by clicking on it.</p>
+
+    <p class="center" style="color: blue;">Klicka på + i övre högra hörnet för att registrera en fångst. Du kan editera en fångst genom att klicka på den.
+    </p>
   </div>
 </ion-content>
