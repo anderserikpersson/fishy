@@ -14,12 +14,12 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // AF2 Settings
 export const firebaseConfig = {
-    apiKey: "AIzaSyD7AfRfeV5D7r6U5BKYzh6E4MbnlZHn-s4",
-    authDomain: "af2-lists-ae90f.firebaseapp.com",
-    databaseURL: "https://af2-lists-ae90f.firebaseio.com",
-    projectId: "af2-lists-ae90f",
+    apiKey: "AIzaSyAF0sjYIi328fawhlAPLBSiW1zJMYrErBI",
+    authDomain: "fishy-a93ab.firebaseapp.com",
+    databaseURL: "https://fishy-a93ab.firebaseio.com",
+    projectId: "fishy-a93ab",
     storageBucket: "",
-    messagingSenderId: "775950119354"
+    messagingSenderId: "1020060788504"
 };
 
 @NgModule({

@@ -8,10 +8,13 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class HomePage {
 
+  username: String;
+
   songs: FirebaseListObservable<any>;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, db: AngularFireDatabase, public actionSheetCtrl: ActionSheetController) {
-    this.songs = db.list('/songs');
+    this.username = 'Anders';
+    this.songs = db.list(this.username+'/songs');
   }
   addSong() {
     let prompt = this.alertCtrl.create({
