@@ -20,8 +20,8 @@
       firebase of Google. We are trying to demonstrate the usefulness of this platform.</p>
 
     <ion-list>
-      <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.$key, song.title)">
-        {{song.title}}
+      <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.$key, song.title,song.release)">
+        {{song.title}} - {{song.release}}
       </ion-item>
     </ion-list>
     <p class="center" style="color: blue;">You can add songs from the add button on the top right corner. The list of the songs is saved at firebase. Even in development

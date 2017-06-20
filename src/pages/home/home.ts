@@ -22,6 +22,10 @@ export class HomePage {
           name: 'title',
           placeholder: 'Title'
         },
+        {
+          name: 'release',
+          placeholder: 'Release'
+        }
       ],
       buttons: [
         {
@@ -34,7 +38,8 @@ export class HomePage {
           text: 'Save',
           handler: data => {
             this.songs.push({
-              title: data.title
+              title: data.title,
+              release: data.release
             });
           }
         }
@@ -43,7 +48,7 @@ export class HomePage {
     prompt.present();
   }
 
-  showOptions(songId, songTitle) {
+  showOptions(songId, songTitle,songRelease) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'What do you want to do?',
       buttons: [
@@ -54,9 +59,9 @@ export class HomePage {
             this.removeSong(songId);
           }
         }, {
-          text: 'Update title',
+          text: 'Update',
           handler: () => {
-            this.updateSong(songId, songTitle);
+            this.updateSong(songId, songTitle,songRelease);
           }
         }, {
           text: 'Cancel',
@@ -73,7 +78,7 @@ export class HomePage {
   removeSong(songId: string) {
     this.songs.remove(songId);
   }
-  updateSong(songId, songTitle) {
+  updateSong(songId, songTitle,songRelease) {
     let prompt = this.alertCtrl.create({
       title: 'Song Name',
       message: "Update the name for this song",
@@ -82,6 +87,11 @@ export class HomePage {
           name: 'title',
           placeholder: 'Title',
           value: songTitle
+        },
+        {
+          name: 'release',
+          placeholder: 'Release',
+          value: songRelease
         },
       ],
       buttons: [
@@ -95,7 +105,8 @@ export class HomePage {
           text: 'Save',
           handler: data => {
             this.songs.update(songId, {
-              title: data.title
+              title: data.title,
+              release: data.release
             });
           }
         }
