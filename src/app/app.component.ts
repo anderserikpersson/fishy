@@ -20,9 +20,9 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Register', component: RegisterPage },
-      { title: 'List', component: ListPage }
+      { title: 'Startsida', component: HomePage },
+      { title: 'Registrera fångst', component: RegisterPage },
+      { title: 'Fångade fiskar', component: ListPage }
     ];
 
   }

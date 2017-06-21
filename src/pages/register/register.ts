@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { NavController, AlertController, ActionSheetController } from 'ionic-angular';
+import { NavController, AlertController, ActionSheetController, ToastController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import * as moment from 'moment';
 
@@ -28,13 +28,14 @@ export class RegisterPage {
 
   private catch : FormGroup;
 
-  constructor(private formBuilder : FormBuilder, public navCtrl: NavController, public alertCtrl: AlertController, db: AngularFireDatabase, public actionSheetCtrl: ActionSheetController) {
+  constructor(private formBuilder : FormBuilder,public toastCtrl: ToastController, public navCtrl: NavController, public alertCtrl: AlertController, db: AngularFireDatabase, public actionSheetCtrl: ActionSheetController) {
     this.catch = this.formBuilder.group({
       fish:['', Validators.required],
       date: [moment().format()],
       weight: ['0', Validators.required],
       latitude: ['60.6741537', Validators.required],
       longitude: ['17.1342999', Validators.required],
+      bait: ['', Validators.required],
     })
     this.username = 'Anders';
     this.catches = db.list(this.username + '/catches');
@@ -42,6 +43,12 @@ export class RegisterPage {
   addCatch() {
     console.log(this.catch);
     this.catches.push(this.catch.value);
+
+        let toast = this.toastCtrl.create({
+      message: 'Fångst registrerad',
+      duration: 2000
+    });
+    toast.present();
     this.catch.reset();
     
   }

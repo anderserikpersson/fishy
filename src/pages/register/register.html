@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Register</ion-title>
+    <ion-title>Registrera fångst</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,12 +13,12 @@
 
   <form [formGroup]="catch" (ngSubmit)="addCatch()">
     <ion-item>
-    <ion-label>Latitude</ion-label>
-    <ion-input type="text" formControlName="latitude" color="primary"></ion-input>
+      <ion-label>Latitude</ion-label>
+      <ion-input type="text" formControlName="latitude" color="primary"></ion-input>
     </ion-item>
-        <ion-item>
-    <ion-label>Longitude</ion-label>
-    <ion-input type="text" formControlName="longitude" color="primary"></ion-input>
+    <ion-item>
+      <ion-label>Longitude</ion-label>
+      <ion-input type="text" formControlName="longitude" color="primary"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -36,8 +36,19 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Ange vikt i hg</ion-label>
+      <ion-label>Vikt i hg</ion-label>
       <ion-input type="number" formControlName="weight" color="primary">Vikt</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Bete</ion-label>
+      <ion-select formControlName="bait">
+        <ion-option value="Mask">Mask</ion-option>
+        <ion-option value="Spinnare">Spinnare</ion-option>
+        <ion-option value="Rapala">Rapala</ion-option>
+        <ion-option value="Wobbler">Wobbler</ion-option>
+        <ion-option value="Skeddrag">Skeddrag</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-item>

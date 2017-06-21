@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Fångade fiskar</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,16 +13,62 @@
   <ion-list>
     <ion-item *ngFor="let catch of catches | async" (click)="showOptions(catch.$key, catch.fish,catch.date,catch.comments)">
       <ion-avatar item-start>
-        <div *ngIf="catch.fish != 'Abborre'">
-          <img src="assets/img/annan.jpg">
-        </div>
         <div *ngIf="catch.fish == 'Abborre'">
           <img src="assets/img/abborre.jpg">
         </div>
+
+        <div *ngIf="catch.fish == 'Gädda'">
+          <img src="assets/img/gadda.png">
+        </div>
+
+        <div *ngIf="catch.fish == 'Haj'">
+          <img src="assets/img/haj.gif">
+        </div>
+
+        <div *ngIf="catch.fish == 'Val'">
+          <img src="assets/img/val.gif">
+        </div>
+
+        <div *ngIf="catch.fish == 'Gös'">
+          <img src="assets/img/gos.jpg">
+        </div>
+
+        <div *ngIf="catch.fish == 'Mört'">
+          <img src="assets/img/mort.jpg">
+        </div>
+
+        <div *ngIf="catch.fish == 'Torsk'">
+          <img src="assets/img/torsk.png">
+        </div>
+
+        <div *ngIf="catch.fish == 'Öring'">
+          <img src="assets/img/oring.png">
+        </div>
+
+        <div *ngIf="catch.bait == 'Rapala'">
+          <img src="assets/img/rapala.jpeg">
+        </div>
+
+        <div *ngIf="catch.bait == 'Skeddrag'">
+          <img src="assets/img/skeddrag.jpg">
+        </div>
+
+        <div *ngIf="catch.bait == 'Spinnare'">
+          <img src="assets/img/spinnare.jpg">
+        </div>
+
+        <div *ngIf="catch.bait == 'Mask'">
+          <img src="assets/img/mask.jpeg">
+        </div>
+
+        <div *ngIf="catch.bait == 'Wobbler'">
+          <img src="assets/img/wobbler.jpeg">
+        </div>
       </ion-avatar>
       <h2>Typ: {{catch.fish}}</h2>
+      <h2>Bete: {{catch.bait}}</h2>
       <h2>Fångstdatum: {{catch.date}}</h2>
-      <h2>Position: {{catch.latitude}} {{catch.longitude}}</h2>      
+      <h2>Position: {{catch.latitude}} {{catch.longitude}}</h2>
       <p>{{catch.comments}}</p>
     </ion-item>
   </ion-list>
