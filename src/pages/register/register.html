@@ -7,26 +7,33 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
+  <div #map id="map"></div>
+  <button ion-button (click)="addPosition()">Ange position</button>
 
   <form [formGroup]="catch" (ngSubmit)="addCatch()">
+    <ion-item>
+    <ion-label>Latitude</ion-label>
+    <ion-input type="text" formControlName="latitude" color="primary"></ion-input>
+    </ion-item>
+        <ion-item>
+    <ion-label>Longitude</ion-label>
+    <ion-input type="text" formControlName="longitude" color="primary"></ion-input>
+    </ion-item>
 
-
-<ion-item>
-  <ion-label>Fisktyp</ion-label>
-  <ion-select formControlName="fish">
-    <ion-option value="Abborre">Abborre</ion-option>
-    <ion-option value="Gädda">Gädda</ion-option>
-    <ion-option value="haj">Haj</ion-option>
-    <ion-option value="val">Val</ion-option>
-    <ion-option value="gos">Gös</ion-option>
-    <ion-option value="mort">Mört</ion-option>
-    <ion-option value="torsk">Torsk</ion-option>
-    <ion-option value="oring">Öring</ion-option>
-  </ion-select>
-</ion-item>
-
+    <ion-item>
+      <ion-label>Fisktyp</ion-label>
+      <ion-select formControlName="fish">
+        <ion-option value="Abborre">Abborre</ion-option>
+        <ion-option value="Gädda">Gädda</ion-option>
+        <ion-option value="Haj">Haj</ion-option>
+        <ion-option value="Val">Val</ion-option>
+        <ion-option value="Gös">Gös</ion-option>
+        <ion-option value="Mört">Mört</ion-option>
+        <ion-option value="Torsk">Torsk</ion-option>
+        <ion-option value="Öring">Öring</ion-option>
+      </ion-select>
+    </ion-item>
 
     <ion-item>
       <ion-label>Ange vikt i hg</ion-label>
