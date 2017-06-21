@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let catch of catches | async" (click)="showOptions(catch.$key, catch.fish,catch.date,catch.comments)">
+      <ion-avatar item-start>
+        <div *ngIf="catch.fish != 'Abborre'">
+          <img src="assets/img/annan.jpg">
+        </div>
+        <div *ngIf="catch.fish == 'Abborre'">
+          <img src="assets/img/abborre.jpg">
+        </div>
+      </ion-avatar>
+      <h2>{{catch.fish}}</h2>
+      <h2>{{catch.date}}</h2>
+      <p>{{catch.comments}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

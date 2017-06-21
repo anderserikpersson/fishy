@@ -1,33 +1,18 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Fishy - Inloggad som: {{username}}
-    </ion-title>
-
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addCatch()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="background-template">
-  <div class="template-center">
-    <h4 class="center">Fångade fiskar</h4>
+<ion-content padding>
+  <h3>Ionic Menu Starter</h3>
 
-    <ion-list>
-      <ion-item *ngFor="let catch of catches | async" (click)="showOptions(catch.$key, catch.fish,catch.date,catch.comments)">
-        <ion-avatar item-start>
-          <img src="assets/img/annan.jpg">
-        </ion-avatar>
-        <h2>{{catch.fish}}</h2>
-        <h2>{{catch.date}}</h2>
-        <p>{{catch.comments}}</p>
-      </ion-item>
-    </ion-list>
+  <p>
+    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+  </p>
 
-    <p class="center" style="color: blue;">Klicka på + i övre högra hörnet för att registrera en fångst. Du kan editera en fångst genom att klicka på den.
-    </p>
-  </div>
+  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

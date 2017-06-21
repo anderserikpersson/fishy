@@ -1,3 +1,5 @@
+import { ListPage } from './../pages/list/list';
+import { RegisterPage } from './../pages/register/register';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -14,35 +16,39 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // AF2 Settings
 export const firebaseConfig = {
-    apiKey: "AIzaSyAF0sjYIi328fawhlAPLBSiW1zJMYrErBI",
-    authDomain: "fishy-a93ab.firebaseapp.com",
-    databaseURL: "https://fishy-a93ab.firebaseio.com",
-    projectId: "fishy-a93ab",
-    storageBucket: "",
-    messagingSenderId: "1020060788504"
+  apiKey: "AIzaSyAF0sjYIi328fawhlAPLBSiW1zJMYrErBI",
+  authDomain: "fishy-a93ab.firebaseapp.com",
+  databaseURL: "https://fishy-a93ab.firebaseio.com",
+  projectId: "fishy-a93ab",
+  storageBucket: "",
+  messagingSenderId: "1020060788504"
 };
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    RegisterPage,
+    ListPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-     AngularFireDatabaseModule, 
-      AngularFireAuthModule, 
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    RegisterPage,
+    ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
