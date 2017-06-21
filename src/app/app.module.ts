@@ -12,6 +12,7 @@ import { HomePage } from '../pages/home/home';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { CommonModule } from "@angular/common";
 
 
 // AF2 Settings
@@ -33,6 +34,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,

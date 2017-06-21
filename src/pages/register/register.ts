@@ -36,6 +36,7 @@ export class RegisterPage {
       latitude: ['60.6741537', Validators.required],
       longitude: ['17.1342999', Validators.required],
       bait: ['', Validators.required],
+      comments: [''],
     })
     this.username = 'Anders';
     this.catches = db.list(this.username + '/catches');

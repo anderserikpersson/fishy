@@ -55,6 +55,11 @@
       <ion-label>Fångstdatum</ion-label>
       <ion-datetime displayFormat="YYYY MMM DD, HH:mm" formControlName="date" name="date"></ion-datetime>
     </ion-item>
+
+    <ion-item>
+      <ion-label>Kommentar</ion-label>
+      <ion-input type="text" formControlName="comments" color="primary"></ion-input>
+    </ion-item>
     <button ion-button type="submit" [disabled]="!catch.valid">Registrera fångst</button>
   </form>
 
