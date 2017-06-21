@@ -36,7 +36,7 @@ export class ListPage {
             this.removeCatch(catchId);
           }
         }, {
-          text: 'Uppdatera en registrerad fångst',
+          text: 'Kommentera en fångst',
           handler: () => {
             this.updateCatch(catchId, fish, date, comments);
           }
@@ -60,16 +60,7 @@ export class ListPage {
       title: 'Registrerad fångst',
       message: "Uppdatera informationen om fångsten",
       inputs: [
-        {
-          name: 'fish',
-          placeholder: 'Fisktyp',
-          value: fish
-        },
-        {
-          name: 'date',
-          placeholder: 'Fångstdatum',
-          value: date
-        },
+
         {
           name: 'comments',
           placeholder: 'Kommentarer',
@@ -87,8 +78,6 @@ export class ListPage {
           text: 'Save',
           handler: data => {
             this.catches.update(catchId, {
-              fish: data.fish,
-              date: data.date,
               comments: data.comments
             });
           }

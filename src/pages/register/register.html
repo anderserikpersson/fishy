@@ -14,11 +14,11 @@
   <form [formGroup]="catch" (ngSubmit)="addCatch()">
     <ion-item>
       <ion-label>Latitude</ion-label>
-      <ion-input type="text" formControlName="latitude" color="primary"></ion-input>
+      <ion-input type="text" formControlName="latitude" [readonly]="true" color="primary"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Longitude</ion-label>
-      <ion-input type="text" formControlName="longitude" color="primary"></ion-input>
+      <ion-input type="text" formControlName="longitude" [readonly]="true" color="primary"></ion-input>
     </ion-item>
 
     <ion-item>
